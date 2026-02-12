@@ -1,49 +1,54 @@
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <h3 align="center">Mosaic5G/Openairinterface Docs.</h3>
-  <p align="center">
-    @DEI.FCTUC
-  </p>
-  <br>
-</div>
+# Unlocking E2E Cell-Free Emulation: A Practical Mosaic5G Testbed for O-RAN
 
+This repository hosts the implementation and evaluation framework for an **O-RAN compliant Cell-Free (CF) networking architecture** built upon the **Mosaic5G** ecosystem. 
 
-# Introduction
-Welcome to the docs of the **Mosaic5G/Openairinterface**, which **currently** serves as repository for understanding, deploying, and managing the key components of the to be implemented system. 
+The core of this project is the integration of User-Centric Cell-Free Massive MIMO concepts within the Open RAN (O-RAN) paradigm. By leveraging the **FlexRIC** controller and **OpenAirInterface (OAI)**, this repository provides the necessary tools to orchestrate distributed Access Points (APs) and implement intelligent Radio Resource Management (RRM) for cell-free deployments.
 
-> *Edit: This doc started out by being developed in the `readme` file of the repository but has since been converted to a Wiki format.* 
+---
 
+## 📖 Documentation
 
-# Structure
+Detailed documentation, setup guides, and experimental workflows can be found in the [Wiki](https://github.com/dapabreu/MOSAIC5G_ORAN_cell_free/wiki) of this repository.
 
-The following repository contains (currently):
-- Wiki
-- Cenarios for **OpenAirInterface** implementation:
+---
 
-| ****    | **Component**                 | **Used for thesis**
-| -------------- | ------------------------------- |------------------------
-| Scenario 3     | CU + DU + FlexRIC + CN          |❌
-| Scenario 4     | CUCP + CUUP + DU + FlexRIC + CN |❌
-| Monolithic     | " Same nodes on 1 VM            |❌
-| Disaggregated Cell-Based | " Same node on 4 Different Machines, with UE cell-based version | ✅
-| Disaggregated Cell-Free | " Same node on 4 Different Machines, with UE cell-Free version |✅
+## 🚀 Core Overview
 
-- ...
+The transition from traditional cellular architectures to **Cell-Free** networks requires a fundamental shift in how User Equipments (UEs) are served. Instead of being tied to a single cell, UEs are served by a coordinated cluster of APs. 
 
-## Wiki
+This repository provides:
 
-The **wiki** covers the following subjects/sections:
-- **Home**: introduction, general purpose notes and project architecture overview;
-- **Mosaic5G Components**: description of every Mosaic5G component, including prerequisites and versions
-- **OpenAirInterface Components**: description of every OpenAirInterface component, including prerequisites and versions;
-- **FlexRAN & FlexRIC**: comparison of FlexRIC and FlexRAN, available features, xApp theory and xApp variable definitions;
-- **Pilot Signals in OAI**: in-depth description of pilto signals, their generation, gold sequences, and how they are leveraged for channel estimation;
-- **Implemented Architectures**: detailed instructions for every deployment model used, from basic out of the box setups, to fully disaggregated environments with complex nodes; 
-- **Additional Notes**: details on configuration parameters used in the previous setups; 
-- **FlexRIC Implementation**: guidelines on different types of FlexRIC installation; 
-- **Custom Docker Images**: instructions on compiling, building and deploying different developed types of custom docker images;
-- **T-tracer Notes**: notes and problem documentation for the T-Tracer tool;
-- **Troubleshooting**: issues encountered, and guidelines for their solutions;
-- **Portainer Implementation**: implementation notes and guides for the managing tool Portainer;
-- **XCP-NG and VM Implementation**: setup guide on implementing a virtualized environment using XCP-NG and troubleshooting common faced errors:
+* **O-RAN Integration:** Implementation of xApps designed for the Near-Real-Time RAN Intelligent Controller (Near-RT RIC) to manage cell-free association logic.
+* **Mosaic5G Extension:** Enhancements to the Mosaic5G stack (FlexRIC and OAI) to support the signaling and multi-connectivity requirements of cell-free networking.
+* **User-Centric Logic:** Algorithms for dynamic serving cluster formation and power allocation, moving away from the cell-edge limitations of traditional 4G/5G.
+* **Evaluation Framework:** Scripts and configurations for simulating or deploying a cell-free O-RAN testbed to validate performance metrics such as throughput, latency, and fairness.
+
+---
+
+## 🏗️ Architecture
+
+The project follows the O-RAN Alliance architecture to ensure modularity and interoperability:
+
+1.  **Service Management and Orchestration (SMO):** For the high-level configuration of the cell-free environment.
+2.  **Near-RT RIC (FlexRIC):** Hosting the xApps that perform user-centric cluster formation and interference management.
+3.  **E2 Node (OAI GNB/CU/DU):** Modified to support the specific E2 interface messages required for cell-free coordination.
+
+---
+
+## 👥 Contributors
+
+This project was developed through the collaborative efforts of:
+
+* **Francisco Gouveia:** Core developer and researcher responsible for the implementation of the cell-free logic, xApp development, and experimental validation.
+* **Marco Silva:** Supervision, architectural design, and research guidance.
+* **David Abreu:** Supervision, project coordination, and technical oversight.
+
+---
+
+## 🎓 Acknowledgements
+
+The results and code hosted in this repository are the primary output of the **Master's Thesis of Francisco Gouveia**, conducted under the supervision of **Marco Silva** and **David Abreu**. This work aims to bridge the gap between theoretical Cell-Free Massive MIMO research and practical, open-source O-RAN implementations.
+
+---
+
+> **Note:** For technical inquiries or collaboration, please refer to the contact information of the supervisors or the main contributor via the GitHub profile.
